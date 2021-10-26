@@ -18,7 +18,7 @@ class App{
         Scanner scan = new Scanner(System.in);
         String fileName = scan.next();
         
-        mapping.read("映射/mapping.txt");
+        mapping.read("mapping/mapping.txt");
         transfer.init(fileName);
         transfer.transfer(fileName, mapping);
 
@@ -30,7 +30,7 @@ class Transfer{
     private File file;
     public Transfer(){};
     public void init(String fileName){
-        file = new File("键位/"+fileName+"-output.txt");
+        file = new File("output/"+fileName+"-output.txt");
         if(!file.exists()) {
             try {
                 file.createNewFile();
@@ -48,7 +48,7 @@ class Transfer{
     }
     public void transfer(String fileName, Mapping mapping){
 
-        try (Scanner scan = new Scanner(new FileReader("曲谱/"+fileName+".txt")))
+        try (Scanner scan = new Scanner(new FileReader("score/"+fileName+".txt")))
         {
             while(scan.hasNext()){
                 String note = scan.next();
